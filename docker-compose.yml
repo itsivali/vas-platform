@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/app:/app/app
+    environment:
+      - ENV=dev
+  frontend-customer:
+    build: ./frontend/customer-portal
+    ports:
+      - "3000:3000"
+  frontend-admin:
+    build: ./frontend/admin-portal
+    ports:
+      - "3001:3000"
+  frontend-partner:
+    build: ./frontend/partner-portal
+    ports:
+      - "3002:3000"
+  mobile:
+    build: ./mobile
+    ports:
+      - "19000:19000"
